@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <?include $(sys.CURRENTDIR)InstallConfig.wxi ?>
+
+  <Product UpgradeCode="916CE633-D719-4665-A69F-8B05E781719C" Id="*" Name="HalonSpamreport OutlookPlugin" Language="1033" Version="$(env.Version)" Manufacturer="$(var.Manufacturer)">
+    <Package Id="*" Description="Installer for HalonSpamreport OutlookPlugin" Comments="Installer for HalonSpamreport OutlookPlugin." InstallerVersion="300" Compressed="yes" Platform="$(var.ProcessorArchitecture)" />
+
+    <PropertyRef Id="NETFRAMEWORK45"/>
+    <Condition Message="This setup requires the .NET Framework 4.5.">NETFRAMEWORK45</Condition>
+
+    <Media Id="1" Cabinet="HalonSpamreport.OutlookPlugin.cab" EmbedCab="yes" CompressionLevel="high" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="$(var.PlatformProgramFilesFolder)">
+        <Directory Id="INSTALLLOCATION" ShortName="halonspm" Name="$(var.Manufacturer)">
+          <Directory Id="HalonSpamreport" Name="HalonSpamreport">
+            <?include Programfiles.wxi?>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <?include Programfiles_features.wxi?>
+    <?include UI.wxi?>
+
+    <Upgrade Id="916CE633-D719-4665-A69F-8B05E781719C">
+      <UpgradeVersion IgnoreRemoveFailure="no" IncludeMaximum="no" IncludeMinimum="no" MigrateFeatures="yes" Property="OUTLOOKPLUGIN_UPGRADE" Minimum="0.0.0.0" Maximum="$(env.Version)" />
+    </Upgrade>
+  </Product>
+</Wix>

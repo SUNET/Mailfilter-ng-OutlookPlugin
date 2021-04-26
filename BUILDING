@@ -1,0 +1,19 @@
+SUNET Halon Spamreport Plugin for Outlook 2010+
+
+Prerequisites
+-------------
+
+* Visual Studio 2019 with Office extensibility
+* WiX (Windows Installer Xml) 3.1.1 or later (see http://wixtoolset.org)
+
+Building
+--------
+
+Open the project in VisualStudio 2019 and do a Build Solution (-> Release)
+
+Packaging
+---------
+
+Open a VS2019 Tools Command, add the wix binaries to the path, and in the Installer directory, run:
+
+> build.cmd <version (x.x.x)> <output_dir> <arch (x86/x64)>
