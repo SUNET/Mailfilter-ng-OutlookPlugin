@@ -223,7 +223,7 @@ namespace HalonSpamreport
 
                     if (failedMessages > 0 && failedMessages < headerItems.Count)
                     {
-                        var msg = "Some of the messages could not be voted on";
+                        var msg = "Some of the messages could not be reported on";
                         if (numberWithoutRefId > 0)
                         {
                             msg += " (one or more are missing Halon mime-headers)";
@@ -233,7 +233,7 @@ namespace HalonSpamreport
                     }
                     else if (failedMessages > 0)
                     {
-                        var msg = "None of the messages could not be voted on";
+                        var msg = "None of the messages could not be reported on";
                         if (numberWithoutRefId > 0)
                         {
                             msg += " (one or more are missing Halon mime-headers)";
@@ -243,7 +243,7 @@ namespace HalonSpamreport
                     }
                     else
                     {
-                        MessageBox.Show(string.Format("The selected message(s) has been voted as {0}", action));
+                        MessageBox.Show(string.Format("The selected message(s) has been reported as {0}", action));
                     }
                 }
             }
